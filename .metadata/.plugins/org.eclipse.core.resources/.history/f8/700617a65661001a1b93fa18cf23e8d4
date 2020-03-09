@@ -1,0 +1,12 @@
+
+public class MonotonousNumber {
+	public static boolean monotonousNumber(String num){
+		boolean result = false;
+		return result;
+	}
+
+	public static void main(String[] args) {
+
+	}
+
+}

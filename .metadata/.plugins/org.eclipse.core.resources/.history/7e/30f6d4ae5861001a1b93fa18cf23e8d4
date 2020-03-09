@@ -1,0 +1,46 @@
+
+public class MonotonousNumber {
+	public static boolean monotonousNumber(String num){
+		if (num.length() <= 2) {
+			return false;
+		} else if (Integer.valueOf(String.valueOf(num.charAt(0))) == 0) return false;
+		boolean checkOdd = false;
+		boolean checkEven = false;
+		String arr[] = num.split("");
+		int arrInt[] = new int[arr.length];
+		for (int i = 0; i < arr.length; i++) {
+			arrInt[i] = Integer.valueOf(arr[i]);
+		}
+		if (arrInt[0] == arrInt[1]) return false;
+		else if (arrInt[0] > arrInt[1]) checkOdd = true;
+		else checkEven = true;
+		
+		if (checkOdd) {
+			for (int i = 0; i < arrInt.length - 1 ; i++) {
+				if (checkOdd) {
+					if (arrInt[i] <= arrInt[i+1]) return false;
+					checkOdd = false;
+				} else {
+					if (arrInt[i] >= arrInt[i+1]) return false;
+					checkOdd = true;
+				}
+			}
+		} else {
+			for (int i = 0; i < arrInt.length - 1 ; i++) {
+				if (checkEven) {
+					if (arrInt[i] >= arrInt[i+1]) return false;
+					checkEven = false;
+				} else {
+					if (arrInt[i] <= arrInt[i+1]) return false;
+					checkEven = true;
+				}
+			}
+		}
+		return true;
+	}
+
+	public static void main(String[] args) {
+
+	}
+
+}

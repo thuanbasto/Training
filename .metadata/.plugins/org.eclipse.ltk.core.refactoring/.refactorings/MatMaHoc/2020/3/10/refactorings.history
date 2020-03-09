@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 elements to &apos;CodeLearn/src/(default package)&apos;&#x0D;&#x0A;- Original project: &apos;MatMaHoc&apos;&#x0D;&#x0A;- Destination element: &apos;CodeLearn/src/(default package)&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     Playfair.java&#x0D;&#x0A;     Caesar.java" description="Copy compilation units" destination="=CodeLearn/src&lt;" element1="/src&lt;{Playfair.java" element2="/src&lt;{Caesar.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1583587224431" units="2" version="1.0"/>
+</session>

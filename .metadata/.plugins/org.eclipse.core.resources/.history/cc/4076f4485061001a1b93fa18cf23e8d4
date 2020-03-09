@@ -1,0 +1,15 @@
+
+public class VolumeCube {
+	public static int volumeCube(long n){
+		int result = 0;
+		long temp = n*(n+1)/2;
+		temp = (long) (Math.pow(temp, 2)%1000000007);
+		result = temp;
+		return result;
+	}
+
+	public static void main(String[] args) {
+
+	}
+
+}
