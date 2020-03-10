@@ -7,7 +7,6 @@ public class IsInfiniteProcess {
 	}
 
 	public static void main(String[] args) {
-
 	}
 
 }
