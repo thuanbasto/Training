@@ -10,6 +10,7 @@ public class CountCaseWin {
 		}
 		return result;
 	}
+	
 	public static int countCaseWins(int n){
 		double result = 0;
 		double a = 0;
