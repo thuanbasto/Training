@@ -36,7 +36,7 @@ public class Order {
 						throw new Exception("Number is incorret. Try again");
 				}
 				if (date == null) {
-					System.out.print("Enter date (dd/MM/yyy): ");
+					System.out.print("Enter date (dd/MM/yyyy): ");
 					String date = scanner.nextLine();
 					if (Validator.isDate(date)) 
 						this.date = new Date(date);

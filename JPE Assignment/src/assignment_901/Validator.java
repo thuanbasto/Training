@@ -6,6 +6,7 @@
 package assignment_901;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Validator {
 	public static boolean isPhone(String phone) {
@@ -30,7 +31,9 @@ public class Validator {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		dateFormat.setLenient(false);
 		try {
-			dateFormat.parse(date);
+			Date d = dateFormat.parse(date);
+			dateFormat = new SimpleDateFormat("yyyy");
+			if (Integer.valueOf(dateFormat.format(d)) < 1000) return false;
 		} catch (Exception e) {
 			return false;
 		}
