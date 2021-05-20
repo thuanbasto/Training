@@ -5,6 +5,7 @@
 
 package assignment_901.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,7 +13,9 @@ import java.util.Scanner;
 import assignment_901.utils.Validator;
 
 
-public class Customer {
+public class Customer implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	private String name;
 	private String phone;
 	private String address;

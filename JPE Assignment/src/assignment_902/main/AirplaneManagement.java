@@ -1,24 +1,32 @@
 package assignment_902.main;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import assignment_902.entities.Airport;
 import assignment_902.service.AirportService;
+import assignment_902.utils.IOService;
 
 public class AirplaneManagement {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		String checkContinue = "";
 		Scanner scanner = new Scanner(System.in);
 		List<Airport> airports = new ArrayList<>();
 
-		airports.add(new Airport("AP00001", "Ha Noi", 100.0, 100.0, 100.0, new ArrayList<>(), new ArrayList<>()));
-		airports.add(new Airport("AP00002", "Can Tho", 200.0, 200.0, 200.0, new ArrayList<>(), new ArrayList<>()));
-		airports.add(new Airport("AP00003", "Da Nang", 300.0, 300.0, 300.0, new ArrayList<>(), new ArrayList<>()));
-		airports.add(new Airport("AP00004", "Sai Gon", 400.0, 400.0, 400.0, new ArrayList<>(), new ArrayList<>()));
+//		airports.add(new Airport("AP00001", "Ha Noi", 100.0, 100.0, 100.0, new ArrayList<>(), new ArrayList<>()));
+//		airports.add(new Airport("AP00002", "Can Tho", 200.0, 200.0, 200.0, new ArrayList<>(), new ArrayList<>()));
+//		airports.add(new Airport("AP00003", "Da Nang", 300.0, 300.0, 300.0, new ArrayList<>(), new ArrayList<>()));
+//		airports.add(new Airport("AP00004", "Sai Gon", 400.0, 400.0, 400.0, new ArrayList<>(), new ArrayList<>()));
 		
+		try {
+			airports = IOService.read(airports);
+		} catch (ClassNotFoundException | IOException e) {
+			e.printStackTrace();
+		}
+
 		do {
 			System.out.println("Choose function: ");
 			System.out.println("1. Add a new Airport");
@@ -37,24 +45,31 @@ public class AirplaneManagement {
 				switch (number) {
 				case "1":
 					AirportService.addAirport(airports);
+					IOService.write(airports);
 					break;
 				case "2":
 					AirportService.addFixedwing(airports);
+					IOService.write(airports);
 					break;
 				case "3":
 					AirportService.removeFixedwing(airports);
+					IOService.write(airports);
 					break;
 				case "4":
 					AirportService.addHellicopter(airports);
+					IOService.write(airports);
 					break;
 				case "5":
 					AirportService.removeHelicopter(airports);
+					IOService.write(airports);
 					break;
 				case "6":
 					AirportService.chanePlaneTypeAndRunwaySizeOfFixedWing(airports);
+					IOService.write(airports);
 					break;
 				case "7":
 					AirportService.displayBySortedID(airports);
+					IOService.write(airports);
 					break;
 				case "8":
 					AirportService.displayStatusAirport(airports);

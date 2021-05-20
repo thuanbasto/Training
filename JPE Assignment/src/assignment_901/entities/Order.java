@@ -5,13 +5,16 @@
 
 package assignment_901.entities;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
 
 import assignment_901.utils.Validator;
 
-public class Order {
+public class Order implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	private String number;
 	private Date date;
 	

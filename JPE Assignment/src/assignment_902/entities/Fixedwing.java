@@ -1,12 +1,15 @@
 package assignment_902.entities;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Scanner;
 
 import assignment_902.utils.AirplaneValidator;
 import assignment_902.utils.FixedwingValidator;
 
-public class Fixedwing extends Airplane{
+public class Fixedwing extends Airplane implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	public String planeType;
 	public Double minNeededRunwaySize;
 

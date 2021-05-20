@@ -1,12 +1,15 @@
 package assignment_902.entities;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Scanner;
 
 import assignment_902.utils.AirplaneValidator;
 import assignment_902.utils.HelicopterValidator;
 
-public class Helicopter extends Airplane{
+public class Helicopter extends Airplane implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	public Double range;
 	   	
 	public Helicopter() {

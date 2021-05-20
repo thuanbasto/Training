@@ -1,12 +1,15 @@
 package assignment_902.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 import assignment_902.utils.AirportValidator;
 
-public class Airport {
+public class Airport implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	public String ID;
 	public String name;
 	public Double runwaySize;
