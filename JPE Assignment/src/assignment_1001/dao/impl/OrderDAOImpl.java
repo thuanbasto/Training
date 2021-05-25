@@ -3,7 +3,6 @@ package assignment_1001.dao.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -72,29 +71,21 @@ public class OrderDAOImpl implements OrderDAO{
 	public List<Order> getOrdersByCustomerID(int customerId) {
 		List<Order> orders = new ArrayList<>();
 		String sql = "SELECT * FROM `Order` WHERE order_id = ?";
-		ResultSet rs = null;
 		try (Connection conn = DatabaseConnection.getConnection(); PreparedStatement statement = conn.prepareStatement(sql);) {
 			statement.setInt(1, customerId);
-			rs = statement.executeQuery();
-			while (rs.next()) {
-				int order_Id = rs.getInt("order_id");
-				Date order_date = rs.getDate("order_date");
-				int customer_Id = rs.getInt("customer_id");
-				int employee_Id = rs.getInt("employee_id");
-				double total = rs.getDouble("total");
-				Order order = new Order(order_Id,order_date,customer_Id,employee_Id,total);
-				orders.add(order);
+			try (ResultSet rs = statement.executeQuery()) {
+				while (rs.next()) {
+					int order_Id = rs.getInt("order_id");
+					Date order_date = rs.getDate("order_date");
+					int customer_Id = rs.getInt("customer_id");
+					int employee_Id = rs.getInt("employee_id");
+					double total = rs.getDouble("total");
+					Order order = new Order(order_Id,order_date,customer_Id,employee_Id,total);
+					orders.add(order);
+				}
 			}
-			
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			if (rs != null)
-				try {
-					rs.close();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
 		}
 		return orders;
 	}

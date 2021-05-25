@@ -59,16 +59,16 @@ public class LineItemDAOImpl implements LineItemDAO{
 		List<LineItem> lineItems = new ArrayList<>();
 		try (Connection conn = DatabaseConnection.getConnection(); PreparedStatement statement = conn.prepareStatement(sql);) {
 			statement.setInt(1, orderId);
-			ResultSet rs = statement.executeQuery();
-			while (rs.next()) {
-				int order_Id = rs.getInt("order_id");
-				int product_Id = rs.getInt("product_id");
-				int quantity = rs.getInt("quantity");
-				double price = rs.getDouble("price");
-				LineItem lineItem = new LineItem(order_Id, product_Id, quantity, price);
-				lineItems.add(lineItem);
+			try (ResultSet rs = statement.executeQuery()) {
+				while (rs.next()) {
+					int order_Id = rs.getInt("order_id");
+					int product_Id = rs.getInt("product_id");
+					int quantity = rs.getInt("quantity");
+					double price = rs.getDouble("price");
+					LineItem lineItem = new LineItem(order_Id, product_Id, quantity, price);
+					lineItems.add(lineItem);
+				}
 			}
-			rs.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -90,11 +90,16 @@ public class LineItemDAOImpl implements LineItemDAO{
 	@Override
 	public Double computeOrderTotal(int orderId) {
 		String sql = "SELECT computeOrderTotal(?)";
+		// hoac dung calable : {? = call Name_Fucntion (?)}
+		// registerOutParameter
+		// excute
+		// get
 		double total = 0;
 		try (Connection conn = DatabaseConnection.getConnection(); PreparedStatement statement = conn.prepareStatement(sql);) {
 			statement.setInt(1, orderId);
-			ResultSet rs = statement.executeQuery();
-			if (rs.next()) total = rs.getDouble(1);
+			try (ResultSet rs = statement.executeQuery()) {
+				if (rs.next()) total = rs.getDouble(1);
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
