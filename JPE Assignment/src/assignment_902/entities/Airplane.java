@@ -1,6 +1,10 @@
 package assignment_902.entities;
 
-public abstract class Airplane {
+import java.io.Serializable;
+
+public abstract class Airplane implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
 	public String ID;
 	public String model;
 	public Double speed;

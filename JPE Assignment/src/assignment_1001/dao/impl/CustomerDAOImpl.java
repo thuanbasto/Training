@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -57,6 +58,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 		String sql = "{CALL addCustomer(?, ?)}";
 		try (Connection conn = DatabaseConnection.getConnection();CallableStatement statement = conn.prepareCall(sql);) {
 			statement.setString(1, customer.getCustomerName());
+			statement.registerOutParameter(2, Types.BOOLEAN);
 			statement.execute();
 			
 			return statement.getBoolean(2);
@@ -100,6 +102,30 @@ public class CustomerDAOImpl implements CustomerDAO{
 //	    COMMIT;
 //	END $$
 //	DELIMITER ;
+	
+// sql server	
+//	CREATE PROCEDURE deleteCustomer ( @customerId int,  @deleteStatus int output )
+//	AS
+//	BEGIN
+//		BEGIN TRANSACTION;
+//		BEGIN TRY
+//			DELETE FROM LineItem WHERE order_Id IN (SELECT order_Id FROM Orders WHERE customer_id = @customerId);
+//			DELETE FROM Orders WHERE customer_id = @customerId;
+//			DELETE FROM Customer WHERE customer_id = @customerId;
+//
+//			select @deleteStatus = 1;
+//			COMMIT TRANSACTION;
+//		END TRY
+//		BEGIN CATCH
+//			select @deleteStatus = 0;
+//			ROLLBACK TRANSACTION;
+//		END CATCH;
+//	END
+//
+//	DECLARE @result INT
+//	SELECT @result=0 
+//	EXECUTE dbo.deleteCustomer 4, @result output
+//	select @result
 	
 	@Override
 	public boolean delete(int customerId) {

@@ -12,7 +12,7 @@ public class FixedwingService {
 		System.out.println("List of fixedwing");
 		for (Airport airport : airports) {
 			airport.fixedwings.forEach(fixedwing -> {
-				System.out.println(fixedwing + ", Airport ID=" + airport.ID + ", Airport name=" + airport.name);
+				System.out.println(fixedwing.toString() + ", Airport ID=" + airport.ID + ", Airport name=" + airport.name);
 			});
 		}
 	}

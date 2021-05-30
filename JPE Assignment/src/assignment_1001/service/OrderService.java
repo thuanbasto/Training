@@ -3,12 +3,15 @@ package assignment_1001.service;
 import java.util.List;
 import java.util.Scanner;
 
+import assignment_1001.dao.LineItemDAO;
 import assignment_1001.dao.OrderDAO;
+import assignment_1001.dao.impl.LineItemDAOImpl;
 import assignment_1001.dao.impl.OrderDAOImpl;
 import assignment_1001.entity.Order;
 
 public class OrderService {
 	public OrderDAO orderDAO = new OrderDAOImpl();
+	public LineItemDAO lineItemDAO = new LineItemDAOImpl();
 	
 	@SuppressWarnings("resource")
 	public void getAllOrdersByCustomerId() {
@@ -40,8 +43,7 @@ public class OrderService {
 			Order order = new Order();
 			System.out.print("Enter order id: ");
 			order.setOrderId(Integer.valueOf(scanner.nextLine()));
-			System.out.print("Enter total: ");
-			order.setTotal(Double.valueOf(scanner.nextLine()));
+			order.setTotal(lineItemDAO.computeOrderTotal(order.getOrderId()));
 			
 			if (orderDAO.updateOrderTotal(order)) System.out.println("Update order successfully");
 			else System.out.println("Update order failed");

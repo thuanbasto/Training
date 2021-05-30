@@ -70,7 +70,7 @@ public class OrderDAOImpl implements OrderDAO{
 	@Override
 	public List<Order> getOrdersByCustomerID(int customerId) {
 		List<Order> orders = new ArrayList<>();
-		String sql = "SELECT * FROM `Order` WHERE order_id = ?";
+		String sql = "SELECT * FROM `Order` WHERE customer_id = ?";
 		try (Connection conn = DatabaseConnection.getConnection(); PreparedStatement statement = conn.prepareStatement(sql);) {
 			statement.setInt(1, customerId);
 			try (ResultSet rs = statement.executeQuery()) {
