@@ -11,6 +11,8 @@ public abstract class Publication {
 	public String publisher;
 	public Date publicationDate;
 	
+	public abstract void a();
+	
 	public Publication() {
 	}
 	

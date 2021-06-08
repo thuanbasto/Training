@@ -116,4 +116,8 @@ public class Book extends Publication{
 	public void setPublicationPlace(String publicationPlace) {
 		this.publicationPlace = publicationPlace;
 	}
+
+	@Override
+	public void a() {
+	}
 }

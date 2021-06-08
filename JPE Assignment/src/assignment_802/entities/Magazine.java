@@ -80,4 +80,10 @@ public class Magazine extends Publication{
 	public void setEdition(int edition) {
 		this.edition = edition;
 	}
+
+	@Override
+	public void a() {
+		// TODO Auto-generated method stub
+		
+	}
 }

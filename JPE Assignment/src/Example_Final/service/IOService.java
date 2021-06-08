@@ -101,7 +101,7 @@ public class IOService {
 		return list;
 	}
 	
-	public static void insertFileGoodStudentToDatabase() {
+	public void insertFileGoodStudentToDatabase() {
 		String sql = "INSERT INTO Student (FullName,Dob,Sex,PhoneNumber,UniversityName,GradeLevel,GPA,BestRewardName) VALUES(?,?,?,?,?,?,?,?)";
 		try (FileReader fileIn = new FileReader("GoodStudent.csv"); 
 			BufferedReader reader = new BufferedReader(fileIn);
@@ -160,7 +160,7 @@ public class IOService {
 		}
 	}
 	
-	public static void insertFileNormalStudentToDatabase() {
+	public void insertFileNormalStudentToDatabase() {
 		String sql = "INSERT INTO Student (FullName,Dob,Sex,PhoneNumber,UniversityName,GradeLevel,EnglishScore,EntryTestScore) VALUES(?,?,?,?,?,?,?,?)";
 		try (FileReader fileIn = new FileReader("NormalStudent.csv"); 
 			BufferedReader reader = new BufferedReader(fileIn);
@@ -209,7 +209,7 @@ public class IOService {
 //		List<GoodStudent> list1 = readFileGoodStudent();
 //		list1.forEach(a -> System.out.println(a));
 //		readFileNormalStudent().forEach(a -> a.showMyInfor());
-		insertFileGoodStudentToDatabase();
+//		insertFileGoodStudentToDatabase();
 //		insertFileNormalStudentToDatabase();
 	}
 }

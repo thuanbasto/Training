@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 import assignment_902.entities.Airport;
 import assignment_902.service.AirportService;
-import assignment_902.utils.IOService;
+import assignment_902.service.IOService;
 
 public class AirplaneManagement {
 	public static void main(String[] args) throws IOException {
@@ -22,7 +22,7 @@ public class AirplaneManagement {
 //		airports.add(new Airport("AP00004", "Sai Gon", 400.0, 400.0, 400.0, new ArrayList<>(), new ArrayList<>()));
 		
 		try {
-			airports = IOService.read(airports);
+			airports = IOService.read();
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
 		}

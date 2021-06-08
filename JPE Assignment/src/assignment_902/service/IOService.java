@@ -1,10 +1,11 @@
-package assignment_902.utils;
+package assignment_902.service;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 import assignment_902.entities.Airport;
@@ -23,8 +24,9 @@ public class IOService {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public static List<Airport> read(List<Airport> airports) throws ClassNotFoundException, IOException {
+	public static List<Airport> read() throws ClassNotFoundException, IOException {
 		ObjectInputStream in = null;
+		List<Airport> airports = new ArrayList<>();
 		try {
 			in = new ObjectInputStream(new FileInputStream("out_902.txt"));
 			airports = (List<Airport>) in.readObject();
