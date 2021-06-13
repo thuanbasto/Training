@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7.3</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    
+    <style>
+        .area{
+            width: 47%;
+        }
+
+        table{
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <form class="container mt-5 d-flex justify-content-between flex-wrap">
+        <div class="area personal">
+            <h2>Personal Info</h2>
+            <div class="fullname row form-group">
+                <div class="col">
+                    <label class="font-weight-bold">First name</label>
+                    <input type="text" class="firstName form-control" placeholder="First name">
+                    <label class="error text-danger d-none">Can only contain letters.</label>
+                </div>
+                <div class="col">
+                    <label class="font-weight-bold">Last name</label>
+                    <input type="text" class="lastName form-control" placeholder="Last name">
+                    <label class="error text-danger d-none">Can only contain letters.</label>
+                </div>
+            </div>
+            <div class="email-phone row form-group">
+                <div class="col">
+                    <label class="font-weight-bold">Email</label>
+                    <input type="text" class="email form-control" placeholder="Email">
+                    <label class="error text-danger d-none">Must be have @fsoft.com.vn.</label>
+                </div>
+                <div class="col">
+                    <label class="font-weight-bold">Phone</label>
+                    <input type="text" class="phone form-control" maxlength="10" placeholder="Phone">
+                    <label class="error text-danger d-none">Can only 10 numbers.</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold">Address</label>
+                <input type="text" class="address form-control" placeholder="Main St">
+                <label class="error text-danger d-none">Can only contain letters.</label>
+            </div>
+            <div class="region row form-group">
+                <div class="col-5">
+                    <label class="font-weight-bold">City</label>
+                    <input type="text" class="city form-control" placeholder="City">
+                    <label class="error text-danger d-none">Can only contain letters.</label>
+                </div>
+                <div class="col">
+                    <label class="font-weight-bold">State</label>
+                    <div class="form-group">
+                        <select class="state form-control" id="exampleFormControlSelect1">
+                            <option>Indo</option>
+                            <option selected>Viet Nam</option>
+                            <option>Thai Lan</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <label class="font-weight-bold">Zip Code</label>
+                    <input type="text" class="zipcode form-control" placeholder="55555" maxlength="5">
+                    <label class="error text-danger d-none">Can only 5 numbers.</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="form-check">
+                    <input class="checkout form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label font-weight-bold" for="defaultCheck1">Check me out</label>
+                </div>
+                <label class="error text-danger d-none">Please check me before sign in.</label>
+            </div>
+            <button class="sign-in btn btn-primary">Sign in</button>
+        </div>
+        <div class="area payment">
+            <h2>Payment Info</h2>
+            <div class="form-group">
+                <label class="font-weight-bold">Name on Card</label>
+                <input type="text" class="nameOnCard form-control" placeholder="John More Doe">
+                <label class="error text-danger d-none">Can only contain letters.</label>
+            </div>
+            <div class="form-group">
+                <label class="font-weight-bold">Credit card number</label>
+                <input type="text" class="creditCard form-control" placeholder="1111-2222-3333-4444" maxlength="19">
+                <label class="error text-danger d-none">Can only 16 numbers.</label>
+            </div>
+            <div class="expired row form-group">
+                <div class="col">
+                    <label class="font-weight-bold">Exp Month</label>
+                    <input type="text" class="expMonth form-control" placeholder="07" maxlength="2">
+                    <label class="error text-danger d-none">Can only contain number from 1-12.</label>
+                </div>
+                <div class="col">
+                    <label class="font-weight-bold">Exp Year</label>
+                    <input type="text" class="expYear form-control" placeholder="2018" maxlength="4">
+                    <label class="error text-danger d-none">Can only contain number larger 2000.</label>
+                </div>
+                <div class="col">
+                    <label class="font-weight-bold">CVV</label>
+                    <input type="text" class="cvv form-control" placeholder="352" maxlength="3">
+                    <label class="error text-danger d-none">Can only contain number.</label>
+                </div>
+            </div>
+            <div>
+                <label class="font-weight-bold">Accepted Cards</label>
+                <div class="form-inline mt-1">
+                    <div class="form-check mr-2">
+                        <input class="card-type form-check-input" type="radio" name="typeCard" id="exampleRadios1" value="VISA" hidden>
+                        <label class="form-check-label text-primary pl-1 pr-1" for="exampleRadios1"><i class="fab fa-cc-visa fa-2x"></i></label>
+                    </div>
+                    <div class="form-check mr-2">
+                        <input class="card-type form-check-input" type="radio" name="typeCard" id="exampleRadios2" value="MASTERCARD" hidden>
+                        <label class="form-check-label text-danger pl-1 pr-1" for="exampleRadios2"><i class="fab fa-cc-mastercard fa-2x"></i></label>
+                    </div>
+                    <div class="form-check">
+                        <input class="card-type form-check-input" type="radio" name="typeCard" id="exampleRadios3" value="DISCOVER" hidden>
+                        <label class="form-check-label text-warning pl-1 pr-1" for="exampleRadios3"><i class="fab fa-cc-discover fa-2x"></i></label>
+                    </div>
+                </div>
+                <label class="error text-danger d-none">Please choose one.</label>
+            </div>
+        </div>
+
+        <!-- table -->
+        <table class="table table-responsive table-striped table-dark table-hover mt-4 mb-5">
+            <thead>
+                <tr>
+                    <th>Full name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>City state zipcode</th>
+                    <th>Name on card</th>
+                    <th>Credit card number</th>
+                    <th>Expired</th>
+                    <th>CVV</th>
+                    <th>Card type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody class="tbody">
+                <tr>
+                    <td>Tran Thuan</td>
+                    <td>thuan@a.com</td>
+                    <td>0775461753</td>
+                    <td>ABC</td>
+                    <td>Da Nang, Viet Nam, 55555</td>
+                    <td>TranThuan</td>
+                    <td>1111-2222-3333-4444</td>
+                    <td>1/2021</td>
+                    <td>123</td>
+                    <td>VISA</td>
+                    <td><a class="delete-item btn btn-danger">X</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <script src="main.js"></script>
+</body>
+</html>

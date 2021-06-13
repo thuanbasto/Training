@@ -1,0 +1,26 @@
+
+.border-bottom-custom{
+    border-bottom: 2px solid #D4265E;
+}
+
+.btn-custom{
+    background-color: #D4265E;
+}
+
+.btn-reset:focus{
+    border: 0;
+    box-shadow: none;
+}
+
+.color-custom{
+    background-color: #ECECED;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before{
+    background-color :#D4265E;
+    border-color: #D4265E;
+}
+
+.custom-control-input:focus {
+    display: none;
+}

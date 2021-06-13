@@ -1,0 +1,148 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* .container{
+    display: flex;
+    justify-content: space-between;   
+    margin: 2em auto;
+    width: 90%;
+    height: auto;
+} */
+
+.container .area{
+    width: 30%;
+}
+
+/* start title */
+/* .title{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5em;
+} */
+
+.title span{
+    /* font-weight: bold; */
+    font-size: 1.5em;
+}
+
+/* .title a{
+    margin: auto 0;
+} */
+
+/* a {
+    text-decoration: none;
+    color: blue;
+} */
+/* end title */
+
+/* .content{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+} */
+
+.item{
+    /* display: flex; */
+    /* width: 100%; */
+    height: 5em;
+    /* justify-content: space-between; */
+}
+
+/* start item image */
+/* .item-image{
+    width: 25%;
+    height: 100%;
+    border: 1px solid rgb(228, 141, 36);
+    box-sizing: border-box;
+    box-shadow: 0 0 4px gray;
+    padding: 0.3em;
+    margin: auto 0;
+} */
+
+/* .item-image img{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+} */
+/* end item image */
+
+/* start item text */
+.item-text {
+    width: 70%;
+    /* overflow: hidden; */
+}
+
+.item-text h6{
+    margin: 0.1em;
+    font-size: 0.8em;
+}
+
+.item-text p{
+    margin: 0.2em 0;
+    color:  rgb(119, 119, 115);
+    font-size: 0.8em;
+}
+
+.item-text span{
+    color:  rgb(119, 119, 115);
+    font-size: 0.7em;
+}
+
+.item-text a{
+    font-size: 0.9em;
+}
+
+/* end item text */
+
+/* .item-line{
+    border: 1px dashed wheat;
+    margin: 1.5em 0;
+} */
+
+/* card wellcome */
+/* .wellcome .title {
+    width: 100%;
+} */
+
+/* .wellcome .content {
+    width: 100%;
+} */
+
+.wellcome .image{
+    /* width: 100%; */
+    height: 200px;
+    /* border: 1px solid rgb(228, 141, 36); */
+    /* box-sizing: border-box; */
+    /* padding: 0.3em; */
+    /* margin: auto 0; */
+}
+
+/* .wellcome img{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+} */
+
+.wellcome p{
+    margin: 0.5em 0;
+    color:  rgb(119, 119, 115);
+    font-size: 0.8em;
+}
+/* end card wellcome */
+
+.agents .item-text a{
+    display: block;
+}
+
+@media screen and (max-width:1200px){
+    .item-text {
+        display: flex;
+        flex-direction: column;
+    }
+    .item-text span{
+        overflow: hidden;
+    }
+}

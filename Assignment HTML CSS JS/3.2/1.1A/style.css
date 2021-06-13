@@ -1,0 +1,27 @@
+.logo {
+    height: 4em;
+}
+
+.navigation{
+    height: 2em;
+}
+
+.header{
+    height: 5em;
+}
+
+.body{
+    height: 18em;
+}
+
+.body .sideBar{
+    width: 27%;
+}
+
+.body .bodyArea{
+    width: 70%;
+}
+
+.footer{
+    height: 2em;
+}

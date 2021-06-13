@@ -1,0 +1,16 @@
+input[type=checkbox]{
+    width: 20px;
+    height: 20px;
+}
+
+.header{
+    background-color: #435D7D;
+}
+
+.header .title{
+    font-size: 1.8em;
+}
+
+.table{
+    width: 96%;
+}
