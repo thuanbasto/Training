@@ -27,8 +27,8 @@ $(".giaidau").on("change", function () {
 })
 
 function checkName(text) {
-    var re = /^[a-z]{1}[a-z ]{7,25}$/i;
-    return re.test(text);
+    var re = /^[a-z]+([ ]?[a-z]+)+$/i;
+    return re.test(text) && text.length >= 8 && text.length <= 25;
 }
 
 function checkInputValid() {

@@ -16,11 +16,13 @@ console.log(isNumber("1234567890123456"));
 console.log(isNumber("1234a"));
 // 3
 function isEmail(str) {
-    let re = /^[\w._-]{6,}@[\w]+(\.[a-zA-Z]{2,6})+$/i; 
+    let re = /^[a-z][a-z0-9]+[._-]?[a-z0-9]+@[a-z]+(\.[a-z]{2,6})+$/i; 
     return re.test(str);
 }
 console.log("Email");
 console.log(isEmail("thuan1@fsoft.com.vn.as"));
+console.log(isEmail("thasd_3@fsoft.ca"));
+console.log(isEmail("thu.an1@fsoft.com.vn.as"));
 console.log(isEmail("123141@a1aa.com."));
 // 4
 function isURL(str) {
