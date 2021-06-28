@@ -76,7 +76,7 @@ public class OrderDAOImpl implements OrderDAO{
 			try (ResultSet rs = statement.executeQuery()) {
 				while (rs.next()) {
 					int order_Id = rs.getInt("order_id");
-					Date order_date = rs.getDate("order_date");
+					Date order_date = rs.getTimestamp("order_date");
 					int customer_Id = rs.getInt("customer_id");
 					int employee_Id = rs.getInt("employee_id");
 					double total = rs.getDouble("total");

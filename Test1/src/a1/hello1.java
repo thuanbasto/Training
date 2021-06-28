@@ -5,34 +5,22 @@
 
 package a1;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
-public class hello1 extends hello5{
+class hello1 extends hello5{
 	int j;
 	int k;
-	public static int ABC =  10;
 	static int si = 10;
 	int i;
 	
 	public hello1() {
-	}
-	
-	public hello1(int j) {
+		i = 1;
 	}
 
-	public hello1(int j2, int k2) {
-	}
-
-	public void apply(int i) {
-		System.out.println("ok");
+	public void apply() {
+		System.out.println("ok1");
 	}
 	
 	public double me(byte by) {
@@ -40,39 +28,47 @@ public class hello1 extends hello5{
 		return (long) by / d* 3;
 	}
 	
+	public static void m1(CharSequence s) {
+		System.out.println("char");
+	}
+	
+	public static void m1(Object s) {
+		System.out.println("object");
+	}
+	
+	public static void m1(String s) {
+		System.out.println("String");
+		
+	}
+	
 	public static void main(String[] args) {
-		Set<Integer> a = new HashSet<Integer>(Arrays.asList(3,5,4));
-		Set<Integer> b = new TreeSet<Integer>(Arrays.asList(3,5,4));
-		Set<Integer> c = new LinkedHashSet<Integer>(Arrays.asList(3,5,4));
-		
-		System.out.println(a);
-		System.out.println(b);
-		System.out.println(c);
-		
-		Map<Integer,Integer> d = new HashMap<Integer,Integer>();
-		Map<Integer,Integer> e = new TreeMap<Integer,Integer>();
-		Map<Integer,Integer> f = new LinkedHashMap<Integer,Integer>();
-		
-		d.put(3, 5);d.put(5, 4);d.put(4, 3); 
-		e.put(3, 5);e.put(5, 4);e.put(4, 3);
-		f.put(3, 5);f.put(5, 4);f.put(4, 3);
-		
-		System.out.println(d);
-		System.out.println(e);
-		System.out.println(f);
-		
+		hello1 h = new hello2();
+		h.apply();
+		System.out.println(h.si);
+		int[] arr2[] = new int[3][];
+		LocalDate date = LocalDate.parse("2018-11-11");
+		date.minusYears(-5);
+		System.out.println(date.minusYears(-5));
+		m1(null);
+		System.out.println(new Boolean("abc"));
+		List<String> list = new ArrayList<>();
+		list.add("A");
+		list.add("A");
+		list.add("A");
+		list.remove("A");
+		System.out.println(list.size());
 	}
 }
 
 class hello2 extends hello1{
-	public hello2(int j) {
+	static int si = 20;
+	public hello2() {
 		
 	}
 	
-	public hello2(int j, int k) {
-		super(j,k);
+	public void apply(int a) {
+		System.out.println("ok2");
 	}
-	
 }
 
 

@@ -1,7 +1,10 @@
 package Example_Final.service;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.text.ParseException;
@@ -205,11 +208,29 @@ public class IOService {
 		}
 	}
 	
+	public static void writeFile() {
+		try (FileWriter fileOut = new FileWriter("GoodStudentWrite.csv"); 
+				BufferedWriter writer = new BufferedWriter(fileOut);) {
+			NormalStudentService service = new NormalStudentService();
+			service.getNormalStudents().forEach(student -> {
+				try {
+					writer.write(student.getFullName() + "," + student.getPhoneNumber() + "," + student.getBoB());
+					writer.newLine();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			});
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+	}
+	
 	public static void main(String[] args) throws ParseException {
 //		List<GoodStudent> list1 = readFileGoodStudent();
 //		list1.forEach(a -> System.out.println(a));
 //		readFileNormalStudent().forEach(a -> a.showMyInfor());
 //		insertFileGoodStudentToDatabase();
 //		insertFileNormalStudentToDatabase();
+		writeFile();
 	}
 }

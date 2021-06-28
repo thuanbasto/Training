@@ -1,9 +1,12 @@
 package Example_Final.service;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import Example_Final.entity.NormalStudent;
@@ -33,5 +36,23 @@ public class NormalStudentService {
 			e.printStackTrace();
 		}
 		return students;
+	}
+	
+	public static void addNormalStudents(){
+		String sql = "INSERT INTO Student (dob) VALUES(?)";
+		try (Connection conn = DatabaseConnection.getConnection();
+			PreparedStatement statement = conn.prepareStatement(sql);) {
+			Date date = new Date("1/2/2111");
+			statement.setDate(1, new java.sql.Date(new SimpleDateFormat("dd/MM/yyyy")
+					.parse(new SimpleDateFormat("dd/MM/yyyy").format(date)).getTime()));
+//			statement.setDate(1, new java.sql.Date(new SimpleDateFormat("dd/MM/yyyy").parse("1/1/2111").getTime()));
+			statement.execute();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void main(String[] args) {
+		addNormalStudents();
 	}
 }
